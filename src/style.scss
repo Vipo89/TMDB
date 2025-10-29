@@ -1,0 +1,22 @@
+body {
+  background-color: #242424;
+}
+
+.maindiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sitetitle {
+  color: whitesmoke;
+  text-align: center;
+}
+
+.findbtn {
+  padding: 10px;
+  border: none;
+  width: fit-content;
+  border-radius: 10px;
+  font-size: 24px;
+  background-color: orange;
+}
