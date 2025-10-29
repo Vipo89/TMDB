@@ -1,4 +1,4 @@
-import { getMovies } from "../api/apiFetch";
+import { getMovie, getMovies } from "../api/apiFetch";
 import "./style.scss";
 
 // const sideselect = document.createElement("select")
@@ -29,9 +29,9 @@ const findFilmsBtn = document.createElement("button");
 findFilmsBtn.classList.add("findbtn");
 findFilmsBtn.textContent = "Buscar películas";
 
-const mainGrid = document.createElement("div")
-mainGrid.classList.add("moviegrid")
 
+const mainGrid = document.createElement("div");
+mainGrid.classList.add("moviegrid");
 
 maindiv.appendChild(siteTitle);
 maindiv.appendChild(findFilmsBtn);
@@ -41,7 +41,6 @@ anchorElement.appendChild(maindiv);
 anchorElement.appendChild(mainGrid);
 
 findFilmsBtn.addEventListener("click", (e) => {
-
   getMovies(mainGrid);
-  console.log("Hola");
 });
+

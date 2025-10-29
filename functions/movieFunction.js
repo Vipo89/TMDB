@@ -7,10 +7,13 @@ export function showMovies(movies, container) {
   } else {
     container.innerHTML = "";
   }
-
-  movies.forEach((movie) => {
-      console.log(movie);
-    const movieCard = createCard(movie);
-    container.appendChild(movieCard);
-  });
+  if (movies.length > 1) {
+    movies.forEach((movie) => {
+      const movieCard = createCard(movie);
+      container.appendChild(movieCard);
+    });
+  } else {
+    const oneMoviecard = createCard(movies);
+    container.appendChild(oneMoviecard);
+  }
 }

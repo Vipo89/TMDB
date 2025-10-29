@@ -4,7 +4,30 @@ import { apiConfig } from "./apiConfig";
 export async function getMovies(container) {
   try {
     const response = await fetch(
-      `${apiConfig.baseUrl}upcoming?api_key=${apiConfig.apiKey}&language=es-ES&page=1`
+      `${apiConfig.baseUrl}popular?api_key=${apiConfig.apiKey}`
+    );
+    if (!response.ok) {
+      throw new Error("Error obteniendo el listado");
+    }
+    const data = await response.json();
+    console.log(data.results);
+    
+
+    // if (typeof localStorage !== undefined) {
+    //   localStorage.setItem("dataMovies", JSON.stringify(data.results));
+    // }
+    showMovies(data.results,container);
+  } catch (error) {
+    console.log("Se ha producido un error: ", error);
+  }
+}
+
+
+export async function getMovie(container,id) {
+  try {
+    const response = await fetch(
+      `${apiConfig.baseUrl}${id}?api_key=${apiConfig.apiKey}`
+      //https://api.themoviedb.org/3/movie/",
     );
     if (!response.ok) {
       throw new Error("Error obteniendo el listado");
@@ -14,9 +37,9 @@ export async function getMovies(container) {
     // if (typeof localStorage !== undefined) {
     //   localStorage.setItem("dataMovies", JSON.stringify(data.results));
     // }
+console.log(data);
 
-    console.log("Datos enviados");
-    showMovies(data.results,container);
+    showMovies(data,container);
   } catch (error) {
     console.log("Se ha producido un error: ", error);
   }
