@@ -36,9 +36,14 @@ mainGrid.classList.add("moviegrid");
 maindiv.appendChild(siteTitle);
 maindiv.appendChild(findFilmsBtn);
 
+const detailsDiv = document.createElement("div")
+detailsDiv.classList.add("detaildiv")
+
+
 
 anchorElement.appendChild(maindiv);
 anchorElement.appendChild(mainGrid);
+anchorElement.appendChild(detailsDiv)
 
 findFilmsBtn.addEventListener("click", (e) => {
   getMovies(mainGrid);

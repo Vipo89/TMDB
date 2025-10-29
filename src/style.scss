@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "mixins" as m;
 
 body {
   background-color: #242424;
@@ -11,8 +12,7 @@ body {
   gap: 32px;
 }
 .sitetitle {
-  color: whitesmoke;
-  text-align: center;
+  @include m.moviesTitle;
 }
 
 .findbtn {
@@ -34,12 +34,72 @@ body {
 .movie-card {
   padding: 2rem;
   text-align: center;
-  color: rgb(243, 203, 93);
+  color: #f3cb5d;
   background-color: color.adjust(#242424, $lightness: 2%);
   border: color.adjust(#242424, $lightness: -20%), 4px, solid;
   border-radius: 10px;
 }
 
-.movie-img{
+.movie-img {
   border-radius: 10px;
+}
+
+.detaildiv {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 10px;
+}
+.detail-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  background-color: color.adjust(#242424, $lightness: -4%);
+  border: white 4px solid;
+  padding: 15px;
+}
+
+.movie-title {
+  @include m.moviesTitle;
+  font-size: 3.5rem;
+}
+.detail-div {
+  gap: 20px;
+}
+
+.detail-description {
+  padding: 10px;
+  width: 50%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: color.adjust(#f3cb5d, $lightness: -15%);
+}
+.cast-container {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;     
+  padding: 10px 0;
+}
+
+.cast-div {
+  flex: 0 0 auto;       
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.cast-img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.cast-name {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: color.adjust(#f3cb5d, $lightness: 20%);
 }
