@@ -31,6 +31,20 @@ body {
   margin: 5rem;
   gap: 50px;
 }
+.movie-img {
+  //   border: 5px solid;
+  // border-image: linear-gradient(to right, orange, rgb(73, 58, 211)) 1;
+  border: 3px solid transparent;
+  padding: 5px;
+  border-radius: 15px;
+  transition: border-color 1s, box-shadow 1s, transform 1s ease;
+}
+
+.movie-img:hover {
+  transform: scale(1.05);
+  border-color: orange;
+  box-shadow: 0 0 10px 2px orange;
+}
 .movie-card {
   padding: 2rem;
   text-align: center;
@@ -56,7 +70,8 @@ body {
   align-items: center;
   gap: 20px;
   background-color: color.adjust(#242424, $lightness: -4%);
-  border: white 4px solid;
+  border: color.adjust(#f3cb5d, $lightness: -45%) 4px solid;
+  border-radius: 10px;
   padding: 15px;
 }
 
@@ -78,12 +93,12 @@ body {
 .cast-container {
   display: flex;
   gap: 15px;
-  overflow-x: auto;     
+  overflow-x: auto;
   padding: 10px 0;
 }
 
 .cast-div {
-  flex: 0 0 auto;       
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
