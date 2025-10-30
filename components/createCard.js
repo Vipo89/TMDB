@@ -91,19 +91,21 @@ export function detailsCard(movie, castArray = []) {
   castContainer.classList.add("cast-container");
 
   castArray.forEach((actor) => {
-    const castDiv = document.createElement("div");
-    castDiv.classList.add("cast-div");
+      if (actor.profile_path !== null) {
+          const castDiv = document.createElement("div");
+          castDiv.classList.add("cast-div");
+          const castImg = document.createElement("img");
+        const castName = document.createElement("p");
+        castImg.classList.add("cast-img");
+        castImg.src = `https://image.tmdb.org/t/p/w200${actor.profile_path}`;
+        castName.classList.add("cast-name");
+        castName.textContent = actor.name;
+        castDiv.append(castImg, castName);
+        castContainer.appendChild(castDiv);
+    }
 
-    const castName = document.createElement("p");
-    castName.classList.add("cast-name");
-    castName.textContent = actor.name;
+    console.log(actor.profile_path);
 
-    const castImg = document.createElement("img");
-    castImg.classList.add("cast-img");
-    castImg.src = `https://image.tmdb.org/t/p/w200${actor.profile_path}`;
-
-    castDiv.append(castImg, castName);
-    castContainer.appendChild(castDiv);
   });
 
   detailsCard.appendChild(movieImg);

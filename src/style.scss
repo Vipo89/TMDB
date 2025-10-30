@@ -28,25 +28,26 @@ body {
 .moviegrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin: 5rem;
+  margin: 1rem 5rem;
   gap: 50px;
 }
 .movie-img {
-  //    border: 5px solid;
-  //  border-image: linear-gradient(to right, orange, rgb(73, 58, 211)) 1;
+  border: 5px solid;
+  border-image: linear-gradient(to right, orange, rgb(73, 58, 211)) 1;
   ///////////////////////////////////////////////////////
-   border: 3px solid transparent;      //Para usar esta capa, comentar las dos de arriba
-   /////////////////////////////////////////////////////
+  // border: 3px solid transparent;      //Para usar esta capa, comentar las dos de arriba y viceversa
+  /////////////////////////////////////////////////////
   border-radius: 15px;
   padding: 5px;
   transition: border-color 1s, box-shadow 1s, transform 1s ease;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+    border-color: orange;
+    box-shadow: 0 0 10px 4px orange;
+  }
 }
 
-.movie-img:hover {
-  transform: scale(1.05);
-  border-color: orange;
-  box-shadow: 0 0 10px 4px orange;
-}
 .movie-card {
   padding: 2rem;
   text-align: center;
@@ -71,7 +72,7 @@ body {
   // display: flex;
   // flex-direction: row;
   display: grid;
-  grid-template-columns:1fr 0.5fr 2fr 1.5fr;
+  grid-template-columns: 1fr 0.5fr 2fr 1.5fr;
   align-items: center;
   gap: 20px;
   background-color: color.adjust(#242424, $lightness: -4%);
@@ -79,7 +80,6 @@ body {
   border-radius: 10px;
   padding: 15px;
 }
-
 
 .movie-title {
   @include m.moviesTitle;
@@ -89,24 +89,23 @@ body {
   gap: 20px;
 }
 
-.rating-div{
+.rating-div {
   display: flex;
   justify-content: center;
 
-gap: 10px;
+  gap: 10px;
 }
 
-.movie-rating-green{
-color: green;
+.movie-rating-green {
+  color: green;
 }
 
-.movie-rating-yellow{
-color: yellow;
+.movie-rating-yellow {
+  color: yellow;
 }
 
-
-.movie-rating-red{
-color: red;
+.movie-rating-red {
+  color: red;
 }
 .detail-description {
   padding: 10px;
@@ -142,4 +141,13 @@ color: red;
   font-size: 1rem;
   font-weight: 500;
   color: color.adjust(#f3cb5d, $lightness: 20%);
+}
+
+.select-list {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: orange;
+  cursor: pointer;
+  font-size: 24px;
+  color: #242424;
 }
