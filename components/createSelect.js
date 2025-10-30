@@ -16,7 +16,7 @@ export function createSelect() {
     selectOption.textContent = e[0];
     selectCategories.appendChild(selectOption);
   });
-createSelectEventListener(selectCategories)
+  createSelectEventListener(selectCategories);
   return selectCategories;
 }
 

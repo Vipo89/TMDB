@@ -1,6 +1,8 @@
 import { getMovie } from "../api/apiFetch";
 
 export function createCard(movie) {
+console.log(movie.poster_path);
+
   const movieCard = document.createElement("div");
   movieCard.classList.add("movie-card");
 
@@ -91,6 +93,8 @@ export function detailsCard(movie, castArray = []) {
   castContainer.classList.add("cast-container");
 
   castArray.forEach((actor) => {
+      
+      
       if (actor.profile_path !== null) {
           const castDiv = document.createElement("div");
           castDiv.classList.add("cast-div");
@@ -103,6 +107,7 @@ export function detailsCard(movie, castArray = []) {
         castDiv.append(castImg, castName);
         castContainer.appendChild(castDiv);
     }
+    
 
     console.log(actor.profile_path);
 
