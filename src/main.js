@@ -29,7 +29,6 @@ const findFilmsBtn = document.createElement("button");
 findFilmsBtn.classList.add("findbtn");
 findFilmsBtn.textContent = "Buscar películas";
 
-
 const mainGrid = document.createElement("div");
 mainGrid.classList.add("moviegrid");
 
@@ -38,8 +37,6 @@ maindiv.appendChild(findFilmsBtn);
 
 const detailsDiv = document.createElement("div")
 detailsDiv.classList.add("detaildiv")
-
-
 
 anchorElement.appendChild(maindiv);
 anchorElement.appendChild(mainGrid);

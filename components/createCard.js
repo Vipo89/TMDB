@@ -22,13 +22,43 @@ export function createCard(movie) {
   movieTitle.classList.add("movie-title");
   movieTitle.textContent = movie.original_title;
 
-  const movieInfo = document.createElement("p");
-  movieInfo.classList.add("movie-info");
-  movieInfo.textContent = `Rating: ${movie.vote_average} Date: ${movie.release_date}`;
+  //   const movieInfo = document.createElement("p");
+  //   if (movie.vote_average > 5) {
+  //     movieInfo.classList.add("movie-rating-green");
+  //   } else {
+  //     movieInfo.classList.add("movie-rating-red");
+  //   }
+
+  //   movieInfo.textContent = `Rating: ${movie.vote_average}`;
+
+  const ratingDiv = document.createElement("div");
+  ratingDiv.classList.add("rating-div");
+
+  const movieRatingTest = document.createElement("p");
+  movieRatingTest.textContent = "Rating: ";
+
+  const movieRating = document.createElement("P");
+  movieRating.textContent = movie.vote_average;
+
+  if (movie.vote_average > 7) {
+    movieRating.classList.add("movie-rating-green");
+  } else if (movie.vote_average > 5 && movie.vote_average < 7) {
+    movieRating.classList.add("movie-rating-yellow");
+  } else {
+    movieRating.classList.add("movie-rating-red");
+  }
+
+  const movieDate = document.createElement("p");
+  movieDate.classList.add("movie-infoo");
+  movieDate.textContent = `Date: ${movie.release_date}`;
+  ratingDiv.appendChild(movieRatingTest);
+  ratingDiv.appendChild(movieRating);
 
   movieCard.appendChild(movieImg);
   movieCard.appendChild(movieTitle);
-  movieCard.appendChild(movieInfo);
+  movieCard.appendChild(ratingDiv);
+  movieCard.appendChild(movieDate);
+  //   movieCard.appendChild(movieInfo);
 
   return movieCard;
 }
@@ -41,27 +71,26 @@ export function detailsCard(movie, castArray = []) {
   detailsCard.classList.add("detail-card");
   detailsCard.classList.add(`card${++moviecounter}`);
 
-
   const movieImg = document.createElement("img");
   movieImg.classList.add("movie-img");
   movieImg.setAttribute("id-movie", movie.id);
-  movieImg.setAttribute("src", `https://image.tmdb.org/t/p/w300${movie.poster_path}`);
-
+  movieImg.setAttribute(
+    "src",
+    `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+  );
 
   const movieTitle = document.createElement("h2");
   movieTitle.classList.add("movie-title");
   movieTitle.textContent = movie.original_title;
 
-
   const movieDescription = document.createElement("p");
   movieDescription.classList.add("detail-description");
   movieDescription.textContent = movie.overview;
 
-
   const castContainer = document.createElement("div");
   castContainer.classList.add("cast-container");
 
-  castArray.forEach(actor => {
+  castArray.forEach((actor) => {
     const castDiv = document.createElement("div");
     castDiv.classList.add("cast-div");
 
@@ -71,7 +100,7 @@ export function detailsCard(movie, castArray = []) {
 
     const castImg = document.createElement("img");
     castImg.classList.add("cast-img");
-    castImg.src = `https://image.tmdb.org/t/p/w200${actor.profile_path}`; 
+    castImg.src = `https://image.tmdb.org/t/p/w200${actor.profile_path}`;
 
     castDiv.append(castImg, castName);
     castContainer.appendChild(castDiv);
