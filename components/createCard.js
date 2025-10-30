@@ -3,66 +3,60 @@ import { getMovie } from "../api/apiFetch";
 export function createCard(movie) {
 console.log(movie.poster_path);
 
-  const movieCard = document.createElement("div");
-  movieCard.classList.add("movie-card");
-
-  const movieImg = document.createElement("img");
-  movieImg.classList.add("movie-img");
-  movieImg.setAttribute("id-movie", movie.id);
-  movieImg.setAttribute(
-    "src",
-    `https://image.tmdb.org/t/p/w300${movie.poster_path}`
-  );
-
-  movieImg.addEventListener("click", (e) => {
-    console.log(e.target.getAttribute("id-movie"));
-    const detailsCardDiv = document.querySelector(".detaildiv");
-    getMovie(detailsCardDiv, movie.id);
-  });
-
-  const movieTitle = document.createElement("h2");
-  movieTitle.classList.add("movie-title");
-  movieTitle.textContent = movie.original_title;
-
-  //   const movieInfo = document.createElement("p");
-  //   if (movie.vote_average > 5) {
-  //     movieInfo.classList.add("movie-rating-green");
-  //   } else {
-  //     movieInfo.classList.add("movie-rating-red");
-  //   }
-
-  //   movieInfo.textContent = `Rating: ${movie.vote_average}`;
-
-  const ratingDiv = document.createElement("div");
-  ratingDiv.classList.add("rating-div");
-
-  const movieRatingTest = document.createElement("p");
-  movieRatingTest.textContent = "Rating: ";
-
-  const movieRating = document.createElement("P");
-  movieRating.textContent = movie.vote_average;
-
-  if (movie.vote_average > 7) {
-    movieRating.classList.add("movie-rating-green");
-  } else if (movie.vote_average > 5 && movie.vote_average < 7) {
-    movieRating.classList.add("movie-rating-yellow");
-  } else {
-    movieRating.classList.add("movie-rating-red");
+if (movie.poster_path !== null) {
+  
+  
+    const movieCard = document.createElement("div");
+    movieCard.classList.add("movie-card");
+    const movieImg = document.createElement("img");
+    movieImg.classList.add("movie-img");
+    movieImg.setAttribute("id-movie", movie.id);
+    movieImg.setAttribute(
+      "src",
+      `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+    );
+  
+    movieImg.addEventListener("click", (e) => {
+      console.log(e.target.getAttribute("id-movie"));
+      const detailsCardDiv = document.querySelector(".detaildiv");
+      getMovie(detailsCardDiv, movie.id);
+    });
+  
+    const movieTitle = document.createElement("h2");
+    movieTitle.classList.add("movie-title");
+    movieTitle.textContent = movie.original_title;
+  
+    const ratingDiv = document.createElement("div");
+    ratingDiv.classList.add("rating-div");
+  
+    const movieRatingTest = document.createElement("p");
+    movieRatingTest.textContent = "Rating: ";
+  
+    const movieRating = document.createElement("P");
+    movieRating.textContent = movie.vote_average;
+  
+    if (movie.vote_average > 7) {
+      movieRating.classList.add("movie-rating-green");
+    } else if (movie.vote_average > 5 && movie.vote_average < 7) {
+      movieRating.classList.add("movie-rating-yellow");
+    } else {
+      movieRating.classList.add("movie-rating-red");
+    }
+  
+    const movieDate = document.createElement("p");
+    movieDate.classList.add("movie-infoo");
+    movieDate.textContent = `Date: ${movie.release_date}`;
+    ratingDiv.appendChild(movieRatingTest);
+    ratingDiv.appendChild(movieRating);
+  
+    movieCard.appendChild(movieImg);
+    movieCard.appendChild(movieTitle);
+    movieCard.appendChild(ratingDiv);
+    movieCard.appendChild(movieDate);
+    //   movieCard.appendChild(movieInfo);
+  
+    return movieCard;
   }
-
-  const movieDate = document.createElement("p");
-  movieDate.classList.add("movie-infoo");
-  movieDate.textContent = `Date: ${movie.release_date}`;
-  ratingDiv.appendChild(movieRatingTest);
-  ratingDiv.appendChild(movieRating);
-
-  movieCard.appendChild(movieImg);
-  movieCard.appendChild(movieTitle);
-  movieCard.appendChild(ratingDiv);
-  movieCard.appendChild(movieDate);
-  //   movieCard.appendChild(movieInfo);
-
-  return movieCard;
 }
 /////////////////////
 

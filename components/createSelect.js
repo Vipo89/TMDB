@@ -8,7 +8,6 @@ export function createSelect() {
   selectCategories.classList.add("select-list");
 
   const arrayData = Object.entries(moviesList);
-  console.log(arrayData);
 
   arrayData.forEach((e) => {
     const selectOption = document.createElement("option");
