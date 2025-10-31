@@ -2,7 +2,6 @@ import { moviesList } from "../api/apiConfig";
 import { getMovies } from "../api/apiFetch";
 
 export function createSelect() {
-  console.log("hola");
 
   const selectCategories = document.createElement("select");
   selectCategories.classList.add("select-list");

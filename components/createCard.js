@@ -1,7 +1,7 @@
 import { getMovie } from "../api/apiFetch";
 
 export function createCard(movie) {
-console.log(movie.poster_path);
+
 
 if (movie.poster_path !== null) {
   

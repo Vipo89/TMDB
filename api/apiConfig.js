@@ -4,6 +4,7 @@ export const apiConfig = {
 };
 
 export const moviesList = {
+  "Selecciona una opción": "",
   "En cartelera": "now_playing",
   "Popular":"popular",
   "Mejor valoradas": "top_rated",

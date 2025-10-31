@@ -53,3 +53,23 @@ export async function getCredits(movieId) {
     return [];
   }
 }
+
+export async function searchMovies(container, query) {
+  try {
+    if (!query) return;
+
+    const response = await fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=${
+        apiConfig.apiKey
+      }&query=${encodeURIComponent(query)}&language=es-ES`
+    );
+    if (!response.ok) throw new Error("Error buscando la película");
+
+    const data = await response.json();
+    console.log(data.results);
+
+    showMovies(data.results, container);
+  } catch (error) {
+    console.log("Se ha producido un error:", error);
+  }
+}
