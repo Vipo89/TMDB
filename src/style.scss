@@ -30,12 +30,12 @@ body {
 }
 .moviegrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 
 }
 .moviegrid2 {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 
 }
 .movie-img {
